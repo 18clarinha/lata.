@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Uloopet:wght@100..400&display=swap');
+/* Reset básico para todos os elementos */
+*{
+    margin: 0;          /* Remove margens padrão */
+    padding: 0;         /* Remove paddings padrão */
+    box-sizing: border-box; /* Faz com que padding e border não afetem as dimensões totais */
+    font-family: "Playwrite DK Uloopet", cursive; /* Define fonte padrão */
+    font-optical-sizing: auto; /* Permite ajuste ótico da fonte */
+}
+
+/* Estilização da barra de navegação */
+nav {
+    display: flex;      /* Usa flexbox para layout */
+    padding: 2% 6%;     /* Padding vertical 2%, horizontal 6% */
+    position: relative; /* Permite posicionamento absoluto de elementos filhos */
+    justify-content: space-between; /* Espaço entre os itens */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+}
+
+/* Estilo do logo */
+.logo{
+    width: 15%; /* Largura do logo */
+}
+
+/* Estilo da lista de navegação */
+.list {
+    flex:1;             /* Ocupa todo espaço disponível */
+    text-align: right;  /* Alinha itens à direita */
+}
+
+/* Estilo dos itens da lista */
+.list ul li {
+    position: relative; /* Permite posicionamento absoluto de elementos filhos */
+    list-style: none;   /* Remove marcadores de lista */
+    padding: 8px 12px;  /* Espaçamento interno */
+    display: inline-block; /* Exibe em linha */
+}
+
+/* Estilo dos links */
+.list ul li a {
+    color:#333;         /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    transition: 0.5s;   /* Animação de transição */
+}
+
+/* Classe para item ativo */
+.active{
+    color:#ff0544 !important; /* Cor vermelha com prioridade */
+}
+/* Quando o usuário passar o mouse sobre o elemento 'nul' (provavelmente a lista inteira) */
+ul:hover li {
+    filter: blur(5px); /* Aplica um desfoque nos itens de lista ao passar o mouse sobre 'nul' */
+  }
+  
+  /* Quando o usuário passar o mouse sobre um item de lista individualmente */
+  ul li:hover {
+    filter: blur(0); /* Remove o desfoque do item ao passar o mouse */
+    transform: scale(1.10); /* Aumenta o tamanho do item em 10% */
+    background: linear-gradient(90deg, #16BFFD, #CB6066); /* Fundo com gradiente linear de cores azul e vermelho */
+    background-clip: text; /* Aplica o background apenas ao texto */
+    -webkit-background-clip: text; /* Compatibilidade com navegadores WebKit */
+    -webkit-text-fill-color: transparent; /* Torna o texto transparente para mostrar o background como cor do texto */
+  }
+
+/* Estilo da seção de texto */
+.text {
+    max-width: 600px;   /* Largura máxima */
+    padding: 20px 60px; /* Espaçamento interno */
+}
+
+/* Estilo do título principal */
+.text h2 {
+    font-size: 50px;    /* Tamanho da fonte */
+    animation: slideBottom 1s ease forwards; /* Animação de entrada */
+    animation-delay: .7s; /* Atraso na animação */
+}
+
+/* Estilo do span dentro do texto */
+.text span {
+    color:#05fff2;      /* Cor ciano */
+    font-weight: 900;   /* Peso da fonte */
+}
+
+/* Estilo dos parágrafos */
+.text p {
+    padding: 15px 0;    /* Espaçamento vertical */
+}
+
+/* Estilo do botão */
+.btn {
+    padding: 15px 35px; /* Espaçamento interno */
+    background: linear-gradient(#f701b2,#05fff2); /* Gradiente de cores */
+    color:#fff;         /* Cor do texto */
+    border:0;           /* Remove borda */
+    border-radius: 20px; /* Bordas arredondadas */
+    cursor:pointer;     /* Cursor de ponteiro */
+    transition: 0.5s;   /* Animação de transição */
+}
+
+/* Efeito hover do botão */
+.btn:hover{
+    letter-spacing: 5px; /* Aumenta espaçamento entre letras */
+}
+
+/* Estilo da imagem */
+.img{
+    position: absolute; /* Posicionamento absoluto */
+    right: 0;           /* Alinha à direita */
+    top:100px;          /* Distância do topo */
+    z-index: 2;         /* Camada de sobreposição */
+    cursor: pointer;    /* Cursor de ponteiro */
+    transition: 0.5s;   /* Animação de transição */
+}
+
+/* Estilo adicional da imagem (sobrescreve parcialmente o anterior) */
+.img{
+    width: 22%;         /* Largura da imagem */
+    margin-right: 10%;  /* Margem direita */
+    margin-top: 1%;     /* Margem superior */
+    /* Animações combinadas */
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s; /* Atrasos nas animações */
+}
+
+/* Estilo do círculo decorativo */
+.circle {
+    position: absolute; /* Posicionamento absoluto */
+    top:0;              /* Alinha ao topo */
+    left: 0;            /* Alinha à esquerda */
+    width: 100%;        /* Largura total */
+    height: 100%;       /* Altura total */
+    background: linear-gradient(#f701b2,#05fff2); /* Gradiente de cores */
+    clip-path: circle(600px at right 800px); /* Formato de círculo recortado */
+}
+
+/* Animação de deslizar de cima para baixo */
+@keyframes  slideBottom {
+    0%{
+        transform: translateY(-100px); /* Começa 100px acima */
+        opacity: 0;                   /* Invisível */
+    }
+    100%{
+        transform: translateY(0);     /* Termina na posição normal */
+        opacity: 1;                  /* Totalmente visível */
+    }
+}
+
+/* Animação de flutuação */
+@keyframes floatImage {
+    0%{
+        transform: translateY(0);     /* Posição inicial */
+    }
+    50%{
+        transform: translateY(-24px); /* Move para cima */
+    }
+    100%{
+        transform: translateY(0);     /* Volta à posição inicial */
+    }
+}
+
+/* Animação de zoom */
+@keyframes  zoomIn {
+    0%{
+        transform: scale(0);          /* Começa sem tamanho */
+        opacity: 0;                  /* Invisível */
+    }
+    100%{
+        transform: scale(1);         /* Tamanho normal */
+        opacity: 1;                 /* Totalmente visível */
+    }
+}
